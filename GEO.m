@@ -1,4 +1,4 @@
-% gseData = getgeodata('GSE5847', 'ToFile', 'GSE5847.txt')
+gseData = getgeodata('GSE5847', 'ToFile', 'GSE5847.txt')
 X=gseData.Data;
 H=gseData.Header;
 get(gseData.Data)
