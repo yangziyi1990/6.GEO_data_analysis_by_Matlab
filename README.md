@@ -208,6 +208,15 @@ suptitle('Gene Expression Value Distributions')<br>
 stromaData.NRows<br>
 ans =<br>
        20055<br>
+       
+       add:用genelowvalfilter函数滤除绝对表达量值很低的基因。<br>
+
+[mask, expr_cns_gcrma_eb] = genelowvalfilter(expr_cns_gcrma_eb);<br>
+
+用genevarfilter函数滤除样本间方差很小的基因。<br>
+
+[mask, expr_cns_gcrma_eb] = genevarfilter(expr_cns_gcrma_eb); <br>
+       
 对每个基因进行一次t检验并比较其p值，通过随机替换样本（本例替换1，000次）发现在IBC和非IBC肿瘤之间显著地差异表达的基因。<br>
 randn('state', 0)<br>
 [pvalues, tscores]=mattest(stromaData(:, 'IBC'), stromaData(:, 'non-IBC'),...<br>
